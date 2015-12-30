@@ -1,0 +1,23 @@
+from sys import argv          #引入参数
+from os.path import exists     #引入路径
+
+script,from-file,to_file=argv    #参数分配
+
+print "Copying from %s to %s"%(from_file,to_file)   #提示词
+
+in_file=open(from_file)   #打开from_file，命名为in_file
+indata=in_file.read()        #读取in_file，命名为indata
+
+print "The input file is %d bytes long"%len(indata)    #提示数据indata长度
+
+print "Does the output file exist?%r"%exists(to_file)     #输出to_file路径是否存在
+print "Ready,hit RETURN to continue ,CTRL-C to abort."    #提示词
+raw_input()                 #用户输入
+
+out_file=open(to_file,'w')        #打开to_file,命名为out_file,写入out_file
+out_file.write(indata)            #将indata写入out_file
+
+print "Alright,all done."      #输出“完成”
+
+out_file.close()             #关闭out_file
+in_file.close()               #关闭in_file
