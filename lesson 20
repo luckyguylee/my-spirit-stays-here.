@@ -1,0 +1,25 @@
+from sys import argv        #引入参数
+script,input_file=argv
+def print_all(f):           #定义函数print_all()
+	print f.read()
+
+def rewind(f):              #定义函数
+	f.seek(0)
+	
+def print_a_line(line_count,f):         #定义函数
+	print line_count,f.readline()
+
+current_file=open(input_file)            #打开input_file，命名为current_file
+print "First let's print the whole file:\n"      #输出提示词，函数首行
+
+print_all(current_file)         #对current_file调用函数print_all()
+
+print "Now let's rewind ,kind of like a tape."
+
+rewind(current_file)
+print "Let's print three lines:"
+
+current_line=1
+print_a_line(current ,current_file)
+current_line=current_line+1
+print_a_line(current_line,current_file)
